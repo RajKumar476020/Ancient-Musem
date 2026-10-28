@@ -1,0 +1,88 @@
+import { describe, it, expect } from 'vitest';
+import {
+  getAllArtifacts,
+  getArtifactBySlug,
+  getArtifactsByCategory,
+  getArtifactsByEra,
+  getRelatedArtifacts,
+  getAllCategories,
+  getCategoryBySlug,
+  getAllEras,
+  getEraBySlug,
+} from '@/lib/artifacts';
+import { filterAndSearchArtifacts } from '@/lib/search';
+
+describe('Artifact Data Access Library', () => {
+  it('should retrieve all 20 artifacts', () => {
+    const all = getAllArtifacts();
+    expect(all.length).toBe(20);
+  });
+
+  it('should retrieve an individual artifact by valid slug', () => {
+    const art = getArtifactBySlug('chola-nataraja-bronze');
+    expect(art).toBeDefined();
+    expect(art?.title).toContain('Nataraja');
+  });
+
+  it('should return undefined for invalid slug', () => {
+    const art = getArtifactBySlug('nonexistent-artifact');
+    expect(art).toBeUndefined();
+  });
+
+  it('should filter artifacts by category', () => {
+    const coins = getArtifactsByCategory('ancient-coins');
+    expect(coins.length).toBe(6);
+  });
+
+  it('should filter artifacts by era', () => {
+    const indus = getArtifactsByEra('indus-valley');
+    expect(indus.length).toBe(3);
+  });
+
+  it('should retrieve related artifacts without including the target itself', () => {
+    const target = getArtifactBySlug('chola-nataraja-bronze')!;
+    const related = getRelatedArtifacts(target, 3);
+    expect(related.length).toBeGreaterThan(0);
+    expect(related.some((r) => r.slug === target.slug)).toBe(false);
+  });
+
+  it('should calculate category counts accurately', () => {
+    const categories = getAllCategories();
+    const ancientCoinsCat = categories.find((c) => c.slug === 'ancient-coins');
+    expect(ancientCoinsCat).toBeDefined();
+    expect(ancientCoinsCat?.itemCountEstimate).toBe(6);
+  });
+});
+
+describe('Search and Filtering Library', () => {
+  const all = getAllArtifacts();
+
+  it('should filter by search keyword case-insensitively', () => {
+    const results = filterAndSearchArtifacts(all, { query: 'shiva' });
+    expect(results.length).toBeGreaterThan(0);
+    expect(results.some((r) => r.title.toLowerCase().includes('shiva'))).toBe(true);
+  });
+
+  it('should combine category and search query', () => {
+    const results = filterAndSearchArtifacts(all, {
+      category: 'ancient-coins',
+      query: 'gupta',
+    });
+    expect(results.length).toBeGreaterThanOrEqual(2);
+    results.forEach((r) => {
+      expect(r.categorySlug).toBe('ancient-coins');
+    });
+  });
+
+  it('should sort chronologically by oldest date first', () => {
+    const results = filterAndSearchArtifacts(all, { sortBy: 'date-asc' });
+    expect(results[0].dateStart).toBeLessThanOrEqual(results[1].dateStart);
+    // Earliest should be Harappan / Indus Valley
+    expect(results[0].eraSlug).toBe('indus-valley');
+  });
+
+  it('should sort alphabetically by title', () => {
+    const results = filterAndSearchArtifacts(all, { sortBy: 'title-asc' });
+    expect(results[0].title.localeCompare(results[1].title)).toBeLessThanOrEqual(0);
+  });
+});
