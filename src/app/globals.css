@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8F8F5;
+  --surface: #FFFFFF;
+  --foreground: #242424;
+  --muted-text: #6B6B65;
+  --border: #E7E5DF;
+  --muted-surface: #F0EFEA;
+  --accent-bronze: #8A6A43;
+  --accent-bronze-light: #F4EFEA;
+  --accent-bronze-dark: #6E5333;
+  --primary-btn: #242424;
+  --primary-btn-hover: #3A3A34;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted-text: var(--muted-text);
+  --color-border: var(--border);
+  --color-muted-surface: var(--muted-surface);
+  --color-bronze: var(--accent-bronze);
+  --color-bronze-light: var(--accent-bronze-light);
+  --color-bronze-dark: var(--accent-bronze-dark);
+  --color-btn-primary: var(--primary-btn);
+  --color-btn-hover: var(--primary-btn-hover);
+  --font-sans: var(--font-plus-jakarta-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessible visible focus indicators */
+*:focus-visible {
+  outline: 2px solid var(--accent-bronze);
+  outline-offset: 2px;
+}
+
+/* Editorial line-height and typography utility */
+.article-prose {
+  max-width: 760px;
+  line-height: 1.75;
+  color: #242424;
+}
+
+.article-prose p {
+  margin-bottom: 1.25rem;
+}
+
+.article-prose h2 {
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: #242424;
+  margin-top: 2.25rem;
+  margin-bottom: 0.875rem;
+  letter-spacing: -0.01em;
+}
+
+.article-prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #242424;
+  margin-top: 1.75rem;
+  margin-bottom: 0.625rem;
 }
