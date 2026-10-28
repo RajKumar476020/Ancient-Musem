@@ -46,11 +46,22 @@ describe('Artifact Data Access Library', () => {
     expect(related.some((r) => r.slug === target.slug)).toBe(false);
   });
 
-  it('should calculate category counts accurately', () => {
+  it('should calculate category counts accurately and retrieve by slug', () => {
     const categories = getAllCategories();
     const ancientCoinsCat = categories.find((c) => c.slug === 'ancient-coins');
     expect(ancientCoinsCat).toBeDefined();
     expect(ancientCoinsCat?.itemCountEstimate).toBe(6);
+
+    const singleCat = getCategoryBySlug('ancient-coins');
+    expect(singleCat).toBeDefined();
+    expect(singleCat?.slug).toBe('ancient-coins');
+
+    const allEras = getAllEras();
+    expect(allEras.length).toBeGreaterThanOrEqual(7);
+
+    const singleEra = getEraBySlug('indus-valley');
+    expect(singleEra).toBeDefined();
+    expect(singleEra?.slug).toBe('indus-valley');
   });
 });
 

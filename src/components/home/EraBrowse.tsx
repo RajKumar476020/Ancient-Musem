@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Clock, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 import { Era } from '@/types/era';
 
 interface EraBrowseProps {

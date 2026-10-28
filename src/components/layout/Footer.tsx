@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Compass, BookOpen, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Compass, BookOpen, ShieldCheck } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -105,7 +105,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-10 mt-12 border-t border-[#E7E5DF] flex flex-col sm:flex-row items-center justify-between text-xs text-[#6B6B65] gap-4">
-          <p>© {new Date().getFullYear()} The Historical Artifacts Museum. All historical rights and image credits belong to their respective institutions.</p>
+          <p>© 2026 The Historical Artifacts Museum. All historical rights and image credits belong to their respective institutions.</p>
           <div className="flex items-center gap-6">
             <Link href="/about" className="hover:text-[#242424] transition-colors">
               About Project

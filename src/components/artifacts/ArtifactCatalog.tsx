@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Search, X, RotateCcw, SlidersHorizontal, ArrowUpDown } from 'lucide-react';
+import { Search, X, RotateCcw, ArrowUpDown } from 'lucide-react';
 import { Artifact } from '@/types/artifact';
 import { Category } from '@/types/category';
 import { Era } from '@/types/era';

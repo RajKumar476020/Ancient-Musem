@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ShieldCheck, BookOpen, Scale, Sparkles, Image as ImageIcon, HeartHandshake } from 'lucide-react';
+import { ShieldCheck, BookOpen, Scale, Sparkles, Image as ImageIcon } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';

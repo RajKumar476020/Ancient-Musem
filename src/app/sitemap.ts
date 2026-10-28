@@ -3,7 +3,7 @@ import { getAllArtifacts, getAllCategories, getAllEras } from '@/lib/artifacts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://historical-artifacts-museum.vercel.app';
-  const lastModified = new Date();
+  const lastModified = new Date('2026-10-28T00:00:00.000Z');
 
   // Static routes
   const routes: MetadataRoute.Sitemap = [

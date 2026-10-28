@@ -10,6 +10,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://historical-artifacts-museum.vercel.app'),
   title: {
     template: "%s | The Historical Artifacts Museum",
     default: "The Historical Artifacts Museum — Digital Heritage Collection",
