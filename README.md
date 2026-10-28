@@ -1,36 +1,249 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Historical Artifacts Museum — Digital Heritage Collection
 
-## Getting Started
+An editorial digital heritage museum website celebrating Indian historical artifacts, numismatics, sacred sculpture, and archaeological treasures across five millennia of civilization.
 
-First, run the development server:
+Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Vitest**, featuring 20 peer-reviewed historical artifacts, authentic public-domain museum photography, multi-attribute catalog filtering, interactive image lightbox zoom, structured timelines, and 100% static pre-rendering (`SSG`).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🏛️ Project Highlights & Features
+
+- **20 Authenticated Indian Historical Artifacts**: Spanning the Bronze Age Indus Valley Civilization (c. 2500 BCE) through the Maratha Empire (c. 1700 CE).
+- **Curatorial Balance across 3 Key Domains**:
+  - **Ancient & Medieval Coins (10)**: Maurya punch-marked karshapana, Indo-Greek Agathocles drachm, Kushan Kanishka I gold dinar, Gupta Chandragupta II archer coin, Chola Rajaraja I kahavanu, Delhi Sultanate Alauddin tanka, Vijayanagara Krishna Deva Raya pagoda, Mughal Jahangir zodiac mohur, Maratha Shivaji hohn, and Mysore Tipu Sultan double rupee.
+  - **Hindu Deity Sculptures (6)**: Chola Nataraja bronze, Gupta Sarnath preaching Buddha, Pala stone Avalokiteshvara, Chandela Khajuraho Vaikuntha Vishnu, Pallava Mamallapuram Mahishasuramardini, and Hoysala Halebidu dancing Ganesha.
+  - **Archaeological Seals, Figurines & Capitals (4)**: Indus Valley Pashupati seal, Indus Valley Dancing Girl bronze, Mauryan Lion Capital of Ashoka, and Didarganj Yakshi polished sandstone.
+- **Museum Editorial Aesthetic**: Dedicated light-mode exhibition design (`#F8F8F5` museum parchment background, `#FFFFFF` display surfaces, `#242424` typography, and `#8A6A43` warm antique bronze accents).
+- **Real-Time Catalog Search & Filter**: Instant multi-token search across titles, dynasties, materials, and holding institutions, paired with category and era filtering, sorting options, and URL query parameter synchronization.
+- **Interactive Lightbox Zoom**: High-resolution image modal with keyboard shortcuts (`Esc` to dismiss) and attribution overlays.
+- **Deep Curatorial Context**: Each artifact includes verified dimensions, weight, discovery findspot, holding museum accession number, 5-point verified historical timeline, in-depth contextual analysis, and peer-reviewed academic citations.
+- **SEO & Structured Data**: Dynamic `sitemap.xml`, `robots.txt`, open-graph metadata tags, semantic HTML5, and valid `JSON-LD` (`Article` schema) on every artifact page.
+- **100% Static Pre-rendering (`SSG`)**: All 44 routes generated at build time with 0 runtime database latency.
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technology |
+|---|---|
+| **Framework** | Next.js 16.4 (App Router, Turbopack, Server Components) |
+| **Language** | TypeScript 5.9 (Strict Type Checking) |
+| **Styling** | Tailwind CSS v4 + Vanilla CSS Custom Properties |
+| **Typography** | Plus Jakarta Sans (Google Fonts via `next/font`) |
+| **Icons** | Lucide React (`lucide-react`) |
+| **Data Validation** | Zod 3.24 |
+| **Test Suite** | Vitest 3.2 + JSDOM |
+
+---
+
+## 📂 Project Architecture
+
+```
+Musem/
+├── public/
+│   └── images/
+│       └── artifacts/
+│           ├── chola-nataraja-bronze/
+│           │   └── primary.jpg
+│           ├── lion-capital-ashoka/
+│           │   └── primary.jpg
+│           └── ... (20 verified local images)
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx              # Root HTML, Plus Jakarta Sans, MetadataBase
+│   │   ├── globals.css             # Museum design tokens & Tailwind utilities
+│   │   ├── page.tsx                # Museum Homepage (Hero, Featured, Eras, Categories)
+│   │   ├── not-found.tsx           # Custom 404 Error page
+│   │   ├── sitemap.ts              # Dynamic sitemap (44 pre-rendered URLs)
+│   │   ├── robots.ts               # Robots.txt configuration
+│   │   ├── about/
+│   │   │   └── page.tsx            # Museum Research Standards & Editorial Mission
+│   │   ├── artifacts/
+│   │   │   ├── page.tsx            # Collection Catalog with <Suspense>
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx        # Dynamic Artifact Detail with JSON-LD & SSG
+│   │   ├── categories/
+│   │   │   └── [slug]/
+│   │   │       └── page.tsx        # Departmental Category Collection Pages
+│   │   └── eras/
+│   │       └── [slug]/
+│   │           └── page.tsx        # Chronological Era Exhibition Pages
+│   ├── components/
+│   │   ├── artifacts/
+│   │   │   ├── ArtifactCard.tsx    # Responsive museum object card
+│   │   │   ├── ArtifactCatalog.tsx # Client search, filters, and URL query sync
+│   │   │   ├── ArtifactFacts.tsx   # Curatorial specification panel
+│   │   │   ├── ArtifactGallery.tsx # High-res viewer with Lightbox Zoom modal
+│   │   │   ├── ArtifactGrid.tsx    # Responsive grid layout with empty states
+│   │   │   ├── ArtifactTimeline.tsx# Chronological timeline component
+│   │   │   └── RelatedArtifacts.tsx# Smart related recommendations
+│   │   ├── home/
+│   │   │   ├── Hero.tsx            # Editorial hero with curation stats
+│   │   │   ├── CategoryBrowse.tsx  # Department showcase cards
+│   │   │   └── EraBrowse.tsx       # Chronological timeline explorer
+│   │   ├── layout/
+│   │   │   ├── Header.tsx          # Navigation bar with desktop & mobile links
+│   │   │   ├── MobileNav.tsx       # Accessible mobile menu sheet
+│   │   │   └── Footer.tsx          # Institutional links, licensing & copyright
+│   │   └── ui/
+│   │       └── Breadcrumbs.tsx     # Semantic breadcrumb navigation
+│   ├── data/
+│   │   ├── categories.ts           # 6 curatorial department definitions
+│   │   ├── eras.ts                 # 7 chronological era periods
+│   │   └── artifacts/
+│   │       ├── index.ts            # Central registry exporting all 20 modules
+│   │       ├── chola-nataraja-bronze.ts
+│   │       ├── lion-capital-ashoka.ts
+│   │       └── ... (20 individual artifact data files)
+│   ├── lib/
+│   │   ├── artifacts.ts            # Artifact retrieval, slug lookup, and related scoring
+│   │   └── search.ts               # Multi-token search algorithm and sorters
+│   └── types/
+│       ├── artifact.ts             # Zod schema & TypeScript type for Artifacts
+│       ├── category.ts             # Category schema & type definition
+│       └── era.ts                  # Historical era schema & type definition
+└── tests/
+    └── unit/
+        ├── smoke.test.ts           # Environment & test runner validation
+        ├── schema.test.ts          # Zod schema validation tests
+        ├── taxonomy.test.ts        # Category & Era integrity tests
+        ├── artifacts-data.test.ts  # Verification of all 20 artifact datasets
+        └── artifacts-lib.test.ts   # Data access, search & scoring tests
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Getting Started
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Prerequisites
 
-## Learn More
+- **Node.js**: v20+ or v24+ recommended.
+- **npm**: v10+
 
-To learn more about Next.js, take a look at the following resources:
+### Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Clone the repository (or navigate to workspace)
+cd d:/Websites/Musem
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Install dependencies
+npm install --legacy-peer-deps
+```
 
-## Deploy on Vercel
+### Running Locally
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Start Next.js development server with Turbopack
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) in your browser to explore the museum.
+
+### Running Test Suite
+
+```bash
+# Execute unit and schema tests via Vitest
+npm test
+```
+
+### Code Quality & Static Type Checking
+
+```bash
+# Run ESLint
+npm run lint
+
+# Production build and SSG verification (pre-renders all 44 routes)
+npm run build
+```
+
+---
+
+## 📖 How to Add a New Artifact
+
+To maintain the high editorial standard of the collection, follow these steps when curating and introducing a new historical object:
+
+1. **Obtain Authentic Imagery**:
+   - Download a high-resolution, public-domain or CC0 image from an open-access institution (e.g., The Metropolitan Museum of Art, Cleveland Museum of Art, or Wikimedia Commons).
+   - Place the image in `public/images/artifacts/<slug>/primary.jpg`.
+
+2. **Create the Artifact Data Module**:
+   - Create `src/data/artifacts/<slug>.ts` implementing the `Artifact` interface.
+   - Example structure:
+     ```typescript
+     import { Artifact } from '@/types/artifact';
+
+     export const myArtifact: Artifact = {
+       slug: 'my-historical-artifact',
+       title: 'Title of the Artifact',
+       subtitle: 'Formal Scholarly Subtitle',
+       category: 'sculptures-idols', // Must match one of 6 valid category slugs
+       era: 'chola-dynasty',         // Must match one of 7 valid era slugs
+       date: 'c. 10th Century CE',
+       approxYear: 950,
+       material: 'Bronze',
+       dimensions: 'Height: 85 cm; Width: 60 cm',
+       weight: '24.5 kg',
+       provenance: 'Thanjavur, Tamil Nadu, India',
+       holdingInstitution: 'National Museum, New Delhi',
+       accessionNumber: 'NM-1947.102',
+       featured: true,
+       shortDescription: 'Concise 2-sentence summary for preview cards.',
+       description: [
+         'Comprehensive paragraph detailing artistic and historical significance.',
+         'Second paragraph elaborating on iconography and technique.'
+       ],
+       historicalContext: 'In-depth essay covering the political and cultural climate.',
+       artisticSignificance: 'Analysis of stylistic motifs and craftsmanship.',
+       timeline: [
+         { year: 'c. 950 CE', title: 'Commission', description: 'Created in royal foundry.' },
+         { year: '1934 CE', title: 'Discovery', description: 'Unearthed in hoard near Thanjavur.' }
+       ],
+       image: {
+         src: '/images/artifacts/my-historical-artifact/primary.jpg',
+         alt: 'Detailed alt description for accessibility',
+         caption: 'Primary perspective photograph',
+         credit: 'The Metropolitan Museum of Art',
+         sourceUrl: 'https://www.metmuseum.org/...',
+         license: 'CC0 1.0 Universal Public Domain'
+       },
+       citations: [
+         { title: 'The Art of South India', author: 'Sivaramamurti, C.', year: 1963, source: 'Archaeological Survey of India' }
+       ]
+     };
+     ```
+
+3. **Register in the Central Index**:
+   - Export the new object in `src/data/artifacts/index.ts`.
+
+4. **Verify with Tests**:
+   - Run `npm test` to automatically validate the schema with Zod and verify image path existence.
+
+---
+
+## 🏛️ Institutional Sourcing & Image Rights
+
+All photography showcased in The Historical Artifacts Museum is strictly sourced under verifiable Open Access or Public Domain licenses:
+
+- **The Metropolitan Museum of Art (The Met)**: Open Access Policy (Creative Commons Zero - CC0 1.0).
+- **Cleveland Museum of Art (CMA)**: Open Access (Creative Commons Zero - CC0 1.0).
+- **Wikimedia Commons**: Works confirmed to be in the public domain in their country of origin and the United States (due to age of creation $> 100$ years) or released under Creative Commons CC-BY-SA.
+
+Direct source URLs, institutional accession identifiers, and credit lines are transparently displayed on every artifact detail page.
+
+---
+
+## 🌐 Deployment to Vercel
+
+The application is pre-configured for deployment on [Vercel](https://vercel.com):
+
+1. Push the repository to GitHub.
+2. Import the repository into the Vercel Dashboard.
+3. Keep the default settings (Next.js preset, `npm run build`).
+4. Deploy! All 44 routes will pre-render statically for global CDN distribution.
+
+---
+
+## 📄 License
+
+The code and design system are licensed under the [MIT License](LICENSE).  
+Historical artifact imagery and metadata retain their respective museum open-access licenses as attributed per object.
