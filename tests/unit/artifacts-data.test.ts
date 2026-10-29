@@ -2,9 +2,9 @@ import { describe, it, expect } from 'vitest';
 import { artifacts } from '@/data/artifacts';
 import { ArtifactSchema } from '@/types/artifact';
 
-describe('All 20 Researched Artifacts Dataset', () => {
-  it('should contain exactly 20 researched artifacts', () => {
-    expect(artifacts.length).toBe(20);
+describe('All 71 Researched Artifacts Dataset', () => {
+  it('should contain exactly 71 researched artifacts', () => {
+    expect(artifacts.length).toBe(71);
   });
 
   it('should validate every artifact against ArtifactSchema', () => {

@@ -2,23 +2,26 @@
 
 An editorial digital heritage museum website celebrating Indian historical artifacts, numismatics, sacred sculpture, and archaeological treasures across five millennia of civilization.
 
-Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Vitest**, featuring 20 peer-reviewed historical artifacts, authentic public-domain museum photography, multi-attribute catalog filtering, interactive image lightbox zoom, structured timelines, and 100% static pre-rendering (`SSG`).
+Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Vitest**, featuring 71 peer-reviewed historical artifacts, authentic public-domain museum photography, multi-attribute catalog filtering, interactive image lightbox zoom, structured timelines, and 100% static pre-rendering (`SSG`).
 
 ---
 
 ## 🏛️ Project Highlights & Features
 
-- **20 Authenticated Indian Historical Artifacts**: Spanning the Bronze Age Indus Valley Civilization (c. 2500 BCE) through the Maratha Empire (c. 1700 CE).
-- **Curatorial Balance across 3 Key Domains**:
-  - **Ancient & Medieval Coins (10)**: Maurya punch-marked karshapana, Indo-Greek Agathocles drachm, Kushan Kanishka I gold dinar, Gupta Chandragupta II archer coin, Chola Rajaraja I kahavanu, Delhi Sultanate Alauddin tanka, Vijayanagara Krishna Deva Raya pagoda, Mughal Jahangir zodiac mohur, Maratha Shivaji hohn, and Mysore Tipu Sultan double rupee.
-  - **Hindu Deity Sculptures (6)**: Chola Nataraja bronze, Gupta Sarnath preaching Buddha, Pala stone Avalokiteshvara, Chandela Khajuraho Vaikuntha Vishnu, Pallava Mamallapuram Mahishasuramardini, and Hoysala Halebidu dancing Ganesha.
-  - **Archaeological Seals, Figurines & Capitals (4)**: Indus Valley Pashupati seal, Indus Valley Dancing Girl bronze, Mauryan Lion Capital of Ashoka, and Didarganj Yakshi polished sandstone.
+- **71 Authenticated Indian Historical Artifacts**: Spanning the Bronze Age Indus Valley Civilization (c. 2600 BCE) through the Mughal and Maratha Empires (c. 1800 CE).
+- **Curatorial Balance across 6 Departments**:
+  - **Ancient Coins**: Punch-marked karshapanas, Greco-Bactrian tetradrachms (Demetrios I, Eukratides I), Kushan gold dinars (Vima Kadphises, Huvishka, Vasudeva I & II), and Gupta gold archer dinars.
+  - **Medieval Coins & Royal Regalia**: Imperial Mughal gold-damascened katars, jade-hilted khanjars, cobalt glass hookah bases, and dynastic coinage.
+  - **Hindu Deity & Sacred Sculptures**: Chola Nataraja, Kashmir Standing Buddha, Chola Ganesha, Pala Buddha calling earth to witness, Chola Uma-Maheshvara, Kashmir Vajrapani, Chola Hanuman, Yoga Narasimha, Sultanganj colossal bronze Buddha, and Jina Parshvanatha.
+  - **Monolithic Sculptures & Stone Reliefs**: Mathura Kushan Yakshi railing pillars, Bharhut stupa coping rails and crossbars, Agni god of fire, Hoysala Shiva guardians, and Harshagiri dancing friezes.
+  - **Terracotta & Metal Figurines**: Ahichchatra Mithuna couples, Kaushambi seated Yakshas, Shunga Yakshi plaques, Chandraketugarh winged figures, Bulandibagh Pataliputra heads, and Harwan Kashmir ascetic tiles.
+  - **Archaeological Seals & Antiquities**: Indus Valley steatite bull seals, kaolin unicorn seals, and Bronze Age Copper Hoard anthropomorphic figures.
 - **Museum Editorial Aesthetic**: Dedicated light-mode exhibition design (`#F8F8F5` museum parchment background, `#FFFFFF` display surfaces, `#242424` typography, and `#8A6A43` warm antique bronze accents).
 - **Real-Time Catalog Search & Filter**: Instant multi-token search across titles, dynasties, materials, and holding institutions, paired with category and era filtering, sorting options, and URL query parameter synchronization.
 - **Interactive Lightbox Zoom**: High-resolution image modal with keyboard shortcuts (`Esc` to dismiss) and attribution overlays.
-- **Deep Curatorial Context**: Each artifact includes verified dimensions, weight, discovery findspot, holding museum accession number, 5-point verified historical timeline, in-depth contextual analysis, and peer-reviewed academic citations.
+- **Deep Curatorial Context**: Each artifact includes verified dimensions, weight, discovery findspot, holding museum accession number, verified historical timeline, in-depth contextual analysis, and peer-reviewed academic citations.
 - **SEO & Structured Data**: Dynamic `sitemap.xml`, `robots.txt`, open-graph metadata tags, semantic HTML5, and valid `JSON-LD` (`Article` schema) on every artifact page.
-- **100% Static Pre-rendering (`SSG`)**: All 44 routes generated at build time with 0 runtime database latency.
+- **100% Static Pre-rendering (`SSG`)**: All 95 routes generated at build time with 0 runtime database latency.
 
 ---
 

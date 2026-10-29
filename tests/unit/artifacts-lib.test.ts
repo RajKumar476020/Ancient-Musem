@@ -13,9 +13,9 @@ import {
 import { filterAndSearchArtifacts } from '@/lib/search';
 
 describe('Artifact Data Access Library', () => {
-  it('should retrieve all 20 artifacts', () => {
+  it('should retrieve all 71 artifacts', () => {
     const all = getAllArtifacts();
-    expect(all.length).toBe(20);
+    expect(all.length).toBe(71);
   });
 
   it('should retrieve an individual artifact by valid slug', () => {
@@ -31,12 +31,12 @@ describe('Artifact Data Access Library', () => {
 
   it('should filter artifacts by category', () => {
     const coins = getArtifactsByCategory('ancient-coins');
-    expect(coins.length).toBe(6);
+    expect(coins.length).toBe(14);
   });
 
   it('should filter artifacts by era', () => {
     const indus = getArtifactsByEra('indus-valley');
-    expect(indus.length).toBe(3);
+    expect(indus.length).toBe(6);
   });
 
   it('should retrieve related artifacts without including the target itself', () => {
@@ -50,7 +50,7 @@ describe('Artifact Data Access Library', () => {
     const categories = getAllCategories();
     const ancientCoinsCat = categories.find((c) => c.slug === 'ancient-coins');
     expect(ancientCoinsCat).toBeDefined();
-    expect(ancientCoinsCat?.itemCountEstimate).toBe(6);
+    expect(ancientCoinsCat?.itemCountEstimate).toBe(14);
 
     const singleCat = getCategoryBySlug('ancient-coins');
     expect(singleCat).toBeDefined();
