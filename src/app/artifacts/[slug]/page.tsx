@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -77,7 +77,27 @@ export async function generateMetadata({
   };
 }
 
-export default async function ArtifactDetailPage({ params }: ArtifactPageProps) {
+function ArtifactDetailSkeleton() {
+  return (
+    <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full animate-pulse">
+      <div className="h-4 w-48 bg-[#E7E5DF] rounded mb-4" />
+      <div className="h-10 w-3/4 max-w-lg bg-[#E7E5DF] rounded mb-4" />
+      <div className="h-5 w-full max-w-xl bg-[#E7E5DF] rounded mb-10" />
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+        <div className="lg:col-span-5 space-y-6">
+          <div className="aspect-4/3 w-full bg-[#E7E5DF] rounded-2xl" />
+          <div className="h-64 bg-[#E7E5DF] rounded-2xl" />
+        </div>
+        <div className="lg:col-span-7 space-y-6">
+          <div className="h-48 bg-[#E7E5DF] rounded-2xl" />
+          <div className="h-64 bg-[#E7E5DF] rounded-2xl" />
+        </div>
+      </div>
+    </main>
+  );
+}
+
+async function ArtifactDetailContent({ params }: ArtifactPageProps) {
   const { slug } = await params;
   const artifact = getArtifactBySlug(slug);
 
@@ -113,9 +133,7 @@ export default async function ArtifactDetailPage({ params }: ArtifactPageProps) 
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8F8F5]">
-      <Header />
-
+    <>
       {/* Structured JSON-LD Data */}
       <script
         type="application/ld+json"
@@ -283,7 +301,17 @@ export default async function ArtifactDetailPage({ params }: ArtifactPageProps) 
           <RelatedArtifacts artifacts={relatedArtifacts} />
         </div>
       </main>
+    </>
+  );
+}
 
+export default function ArtifactDetailPage({ params }: ArtifactPageProps) {
+  return (
+    <div className="flex flex-col min-h-screen bg-[#F8F8F5]">
+      <Header />
+      <Suspense fallback={<ArtifactDetailSkeleton />}>
+        <ArtifactDetailContent params={params} />
+      </Suspense>
       <Footer />
     </div>
   );
