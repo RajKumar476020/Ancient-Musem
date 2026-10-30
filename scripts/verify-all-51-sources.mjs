@@ -125,3 +125,4 @@ export const CANDIDATES_51 = [
 ];
 
 console.log('Total candidate artifacts defined:', CANDIDATES_51.length);
+

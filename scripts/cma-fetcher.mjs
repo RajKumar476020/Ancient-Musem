@@ -18,3 +18,4 @@ export async function fetchCmaArtwork(id) {
     }).on('error', () => resolve(null));
   });
 }
+

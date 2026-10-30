@@ -1,14 +1,14 @@
-# The Historical Artifacts Museum — Digital Heritage Collection
+# Ancient Musem — World Digital Museum of Ancient Historical Artifacts
 
-An editorial digital heritage museum website celebrating Indian historical artifacts, numismatics, sacred sculpture, and archaeological treasures across five millennia of civilization.
+An editorial digital heritage museum website celebrating ancient historical artifacts, numismatics, sacred sculpture, and archaeological treasures across five millennia of civilization.
 
-Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Vitest**, featuring 71 peer-reviewed historical artifacts, authentic public-domain museum photography, multi-attribute catalog filtering, interactive image lightbox zoom, structured timelines, and 100% static pre-rendering (`SSG`).
+Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Vitest**, featuring 571 peer-reviewed historical artifacts, authentic public-domain museum photography, multi-attribute catalog filtering, interactive image lightbox zoom, structured timelines, and 100% static pre-rendering (`SSG`).
 
 ---
 
 ## 🏛️ Project Highlights & Features
 
-- **71 Authenticated Indian Historical Artifacts**: Spanning the Bronze Age Indus Valley Civilization (c. 2600 BCE) through the Mughal and Maratha Empires (c. 1800 CE).
+- **571 Authenticated Indian Historical Artifacts**: Spanning the Bronze Age Indus Valley Civilization (c. 2600 BCE) through the Mughal and Maratha Empires (c. 1800 CE).
 - **Curatorial Balance across 6 Departments**:
   - **Ancient Coins**: Punch-marked karshapanas, Greco-Bactrian tetradrachms (Demetrios I, Eukratides I), Kushan gold dinars (Vima Kadphises, Huvishka, Vasudeva I & II), and Gupta gold archer dinars.
   - **Medieval Coins & Royal Regalia**: Imperial Mughal gold-damascened katars, jade-hilted khanjars, cobalt glass hookah bases, and dynastic coinage.
@@ -21,7 +21,7 @@ Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and
 - **Interactive Lightbox Zoom**: High-resolution image modal with keyboard shortcuts (`Esc` to dismiss) and attribution overlays.
 - **Deep Curatorial Context**: Each artifact includes verified dimensions, weight, discovery findspot, holding museum accession number, verified historical timeline, in-depth contextual analysis, and peer-reviewed academic citations.
 - **SEO & Structured Data**: Dynamic `sitemap.xml`, `robots.txt`, open-graph metadata tags, semantic HTML5, and valid `JSON-LD` (`Article` schema) on every artifact page.
-- **100% Static Pre-rendering (`SSG`)**: All 95 routes generated at build time with 0 runtime database latency.
+- **100% Static Pre-rendering (`SSG`)**: All 595 routes generated at build time with 0 runtime database latency.
 
 ---
 

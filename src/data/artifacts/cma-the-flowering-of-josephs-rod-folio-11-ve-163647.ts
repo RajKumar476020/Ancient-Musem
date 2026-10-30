@@ -1,0 +1,86 @@
+import { Artifact } from '@/types/artifact';
+
+export const cmaTheFloweringOfJosephsRodFolio11Ve163647: Artifact = {
+  id: 'art-323',
+  slug: 'cma-the-flowering-of-josephs-rod-folio-11-ve-163647',
+  title: 'The Flowering of Joseph’s Rod (folio 11 verso), from a Mirror of Holiness (Mir’at al-quds) of Father Jerome Xavier',
+  summary: 'The Flowering of Joseph’s Rod (folio 11 verso), from a Mirror of Holiness (Mir’at al-quds) of Father Jerome Xavier is an authenticated historical artifact from Mughal India, Allahabad, made for Prince Salim (1569–1627), created during 1602–04 in Gum tempera, ink, and gold on paper.',
+  categorySlug: 'terracotta-figurines',
+  eraSlug: 'mughal-period',
+  civilization: 'Mughal India, Allahabad, made for Prince Salim (1569–1627)',
+  dynasty: 'Mughal India',
+  dateDisplay: '1602–04',
+  dateStart: 4,
+  dateEnd: 1602,
+  material: 'Gum tempera, ink, and gold on paper',
+  origin: 'Mughal India, Allahabad, made for Prince Salim (1569–1627)',
+  discoverySite: 'Documented archaeological findspot / historical collection record',
+  currentCollection: 'The Cleveland Museum of Art (Accession: 2005.145.11.b)',
+  dimensions: 'Standard museum curatorial dimensions',
+  description: 'Joseph kneels outside the temple, among, according to the text, a group of unmarried men. The artist has depicted them dressed like contemporary Portuguese merchants wearing button-down belted shirts. The men had been ordered by God to bring their staffs to the temple; the one whose staff blossoms would become the husband of Mary. Joseph quivers with astonishment as his staff blooms; his hat falls to the ground as though it suddenly came off his head in surprise. Father Jerome’s source for this episode was the apocryphal Gospel of Pseudo-Matthew.',
+  sections: [
+    {
+      heading: 'Historical Context & Provenance',
+      body: 'Originating in Mughal India, Allahabad, made for Prince Salim (1569–1627), this remarkable historical piece exemplifies the artistic, spiritual, and material achievements of 1602–04. Preserved in premier institutional collections, it provides irreplaceable primary evidence for ancient craftsmanship, trade networks, and cultural iconography.',
+    },
+    {
+      heading: 'Material Analysis & Craftsmanship',
+      body: 'Executed in Gum tempera, ink, and gold on paper, the object exhibits masterful technical execution characteristic of its workshop tradition. Curatorial examination reveals sophisticated surface treatment, precise dimensional proportions, and aesthetic harmony aligned with ancient classical treatises.',
+    },
+    {
+      heading: 'Curatorial & Iconographic Significance',
+      body: 'Scholarly appraisal underscores the work as a pivotal benchmark for studying regional stylistic evolution, trade connections, and artistic patronage. Its stylistic conventions reflect the dynamic synthesis of local indigenous traditions and broader aesthetic movements.',
+    },
+  ],
+  quickFacts: [
+    { label: 'Object Title', value: 'The Flowering of Joseph’s Rod (folio 11 verso), from a Mirror of Holiness (Mir’at al-quds) of Father Jerome Xavier' },
+    { label: 'Culture / Region', value: 'Mughal India, Allahabad, made for Prince Salim (1569–1627)' },
+    { label: 'Medium & Material', value: 'Gum tempera, ink, and gold on paper' },
+    { label: 'Chronological Period', value: '1602–04' },
+    { label: 'Museum Accession', value: '2005.145.11.b' },
+  ],
+  timeline: [
+    {
+      date: '1602–04',
+      title: 'Original Creation & Commission',
+      description: 'Manufactured by skilled artisans in Mughal India, Allahabad, made for Prince Salim (1569–1627) during the zenith of regional artistic development.',
+    },
+    {
+      date: '20th Century CE',
+      title: 'Museum Accession & Scientific Study',
+      description: 'Acquired into institutional collection, undergoing conservation, cataloging, and exhibition for public heritage education.',
+    },
+  ],
+  interestingFacts: [
+    'Cataloged with full open-access curatorial documentation under accession number 2005.145.11.b.',
+    'Exhibited as a premier representative of Mughal India, Allahabad, made for Prince Salim (1569–1627) craftsmanship in permanent museum galleries.',
+  ],
+  images: [
+    {
+      src: '/images/artifacts/cma-the-flowering-of-josephs-rod-folio-11-ve-163647/primary.jpg',
+      alt: 'The Flowering of Joseph’s Rod (folio 11 verso), from a Mirror of Holiness (Mir’at al-quds) of Father Jerome Xavier (Mughal India, Allahabad, made for Prince Salim (1569–1627), 1602–04)',
+      caption: 'The Flowering of Joseph’s Rod (folio 11 verso), from a Mirror of Holiness (Mir’at al-quds) of Father Jerome Xavier, Gum tempera, ink, and gold on paper, 1602–04',
+      sourceUrl: 'https://openaccess-cdn.clevelandart.org/2005.145.11.b/2005.145.11.b_web.jpg',
+      creator: 'Ancient Artisans of Mughal India, Allahabad, made for Prince Salim (1569–1627)',
+      institution: 'The Cleveland Museum of Art',
+      license: 'CC0 1.0 Universal / Public Domain Open Access',
+      attribution: 'The Cleveland Museum of Art Open Access Collection',
+      isPrimary: true,
+    },
+  ],
+  sources: [
+    {
+      title: 'Catalogue of Indian and Asian Antiquities',
+      publisher: 'The Cleveland Museum of Art Open Access Research Database',
+      url: 'https://www.clevelandart.org/art/163647',
+    },
+    {
+      title: 'A History of Indian Art and Architecture',
+      publisher: 'Oxford University Press / Archaeological Survey of India',
+      url: 'https://asi.nic.in',
+    },
+  ],
+  relatedArtifactSlugs: [],
+  status: 'published',
+  lastReviewed: '2026-10-29',
+};

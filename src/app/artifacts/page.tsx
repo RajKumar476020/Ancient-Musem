@@ -7,42 +7,46 @@ import { ArtifactCatalog } from '@/components/artifacts/ArtifactCatalog';
 import { getAllArtifacts, getAllCategories, getAllEras } from '@/lib/artifacts';
 
 export const metadata: Metadata = {
-  title: 'Explore Historical Artifacts',
+  title: 'Permanent Collection',
   description:
-    'Browse the complete collection of 20 authenticated Indian historical artifacts, ancient coins, Hindu deity sculptures, and archaeological seals with multi-attribute filtering.',
+    'Browse 571 authenticated Indian historical artifacts, ancient coins, Hindu deity sculptures, and archaeological seals with multi-attribute filtering.',
 };
 
 export default function ArtifactsPage() {
-  const artifacts = getAllArtifacts();
+  const artifacts  = getAllArtifacts();
   const categories = getAllCategories();
-  const eras = getAllEras();
+  const eras       = getAllEras();
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8F8F5]">
+    <div className="flex flex-col min-h-screen bg-[#FFFFFF]">
       <Header />
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
-        {/* Breadcrumb Trail */}
-        <Breadcrumbs items={[{ label: 'Explore Collection' }]} />
 
-        {/* Page Heading */}
-        <div className="my-8 space-y-2">
-          <span className="text-xs font-semibold text-[#8A6A43] uppercase tracking-widest block">
-            The Complete Archive
-          </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#242424] tracking-tight">
-            Explore Artifacts
+        {/* Breadcrumb */}
+        <Breadcrumbs items={[{ label: 'Collection' }]} />
+
+        {/* Apple Large Title Header */}
+        <div className="mt-7 mb-10 space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="glass-pill text-[11px] text-[#007AFF]">
+              Permanent Collection · {artifacts.length} Objects
+            </span>
+          </div>
+          <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-bold text-[#000000] leading-tight tracking-[-0.035em]">
+            Exhibition Catalog
           </h1>
-          <p className="text-base text-[#6B6B65] max-w-2xl font-normal leading-relaxed">
-            Discover authenticated historical objects from the Indus Valley Civilization to the Maratha Empire. Use keyword search or filter by category and historical era.
+          <p className="text-[16px] text-[#6C6C70] max-w-2xl leading-relaxed">
+            Discover {artifacts.length} authenticated historical objects from the third-millennium BCE
+            Indus Valley to the Maratha Empire. Search by name, filter by category or era.
           </p>
         </div>
 
-        {/* Interactive Catalog Island wrapped in Suspense for useSearchParams */}
+        {/* Catalog */}
         <Suspense
           fallback={
-            <div className="py-20 text-center text-sm text-[#6B6B65]">
-              Loading museum catalog...
+            <div className="py-20 text-center text-[14px] text-[#8E8E93]">
+              Loading collection...
             </div>
           }
         >

@@ -37,61 +37,28 @@ export function getArtifactsByEra(eraSlug: string): Artifact[] {
   );
 }
 
+import {
+  getIntelligentRecommendations,
+  RecommendationWithContext,
+} from './recommendations';
+
 /**
- * Retrieves related artifacts for a given artifact.
- * Uses explicit relatedArtifactSlugs first, and fills remaining slots with
- * items sharing the same era or category.
+ * Retrieves related artifacts for a given artifact using the intelligent recommendation engine.
+ * Computes multi-attribute affinity across dynasty, material, iconography, category, and chronology.
  */
 export function getRelatedArtifacts(artifact: Artifact, limit = 4): Artifact[] {
-  const result: Artifact[] = [];
-  const addedSlugs = new Set<string>([artifact.slug]);
+  const recommendations = getIntelligentRecommendations(artifact, limit, getAllArtifacts());
+  return recommendations.map((r) => r.artifact);
+}
 
-  // 1. Add explicitly linked artifacts
-  for (const relSlug of artifact.relatedArtifactSlugs) {
-    if (result.length >= limit) break;
-    const rel = getArtifactBySlug(relSlug);
-    if (rel && !addedSlugs.has(rel.slug)) {
-      result.push(rel);
-      addedSlugs.add(rel.slug);
-    }
-  }
-
-  // 2. Add artifacts from the same era
-  if (result.length < limit) {
-    const sameEra = getArtifactsByEra(artifact.eraSlug);
-    for (const item of sameEra) {
-      if (result.length >= limit) break;
-      if (!addedSlugs.has(item.slug)) {
-        result.push(item);
-        addedSlugs.add(item.slug);
-      }
-    }
-  }
-
-  // 3. Add artifacts from the same category
-  if (result.length < limit) {
-    const sameCategory = getArtifactsByCategory(artifact.categorySlug);
-    for (const item of sameCategory) {
-      if (result.length >= limit) break;
-      if (!addedSlugs.has(item.slug)) {
-        result.push(item);
-        addedSlugs.add(item.slug);
-      }
-    }
-  }
-
-  // 4. Fill remaining with any artifacts
-  if (result.length < limit) {
-    for (const item of artifacts) {
-      if (result.length >= limit) break;
-      if (!addedSlugs.has(item.slug)) {
-        result.push(item);
-        addedSlugs.add(item.slug);
-      }
-    }
-  }
-
-  return result;
+/**
+ * Retrieves related artifacts along with curatorial context tags and match reasoning.
+ */
+export function getRecommendedArtifactsWithContext(
+  artifact: Artifact,
+  limit = 4
+): RecommendationWithContext[] {
+  return getIntelligentRecommendations(artifact, limit, getAllArtifacts());
 }
 
 /**

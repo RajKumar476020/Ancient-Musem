@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArtifactFact } from '@/types/artifact';
+import { FileText } from 'lucide-react';
 
 interface ArtifactFactsProps {
   facts: ArtifactFact[];
@@ -20,34 +21,43 @@ export const ArtifactFacts: React.FC<ArtifactFactsProps> = ({
   currentCollection,
   dimensions,
 }) => {
-  // Combine core metadata fields with quick facts, avoiding empty values
-  const allSpecifications = [
-    { label: 'Estimated Date', value: dateDisplay },
-    ...(material ? [{ label: 'Material', value: material }] : []),
-    ...(dimensions ? [{ label: 'Dimensions', value: dimensions }] : []),
-    ...(origin ? [{ label: 'Place of Origin', value: origin }] : []),
-    ...(discoverySite ? [{ label: 'Discovery / Findspot', value: discoverySite }] : []),
-    ...(currentCollection ? [{ label: 'Holding Institution', value: currentCollection }] : []),
+  const allSpecifications: ArtifactFact[] = [
+    { label: 'Date', value: dateDisplay },
+    ...(material     ? [{ label: 'Material', value: material }]             : []),
+    ...(dimensions   ? [{ label: 'Dimensions', value: dimensions }]         : []),
+    ...(origin       ? [{ label: 'Origin / Region', value: origin }]        : []),
+    ...(discoverySite? [{ label: 'Discovery Site', value: discoverySite }]  : []),
+    ...(currentCollection ? [{ label: 'Collection', value: currentCollection }] : []),
     ...facts,
   ];
 
   return (
-    <div className="bg-[#FFFFFF] rounded-xl border border-[#E7E5DF] p-6 shadow-sm">
-      <h3 className="text-base font-semibold text-[#242424] tracking-tight border-b border-[#E7E5DF] pb-3 mb-4 flex items-center justify-between">
-        <span>Object Specifications</span>
-        <span className="text-xs uppercase tracking-wider text-[#8A6A43] font-medium">Quick Facts</span>
-      </h3>
+    <div className="glass-card rounded-[24px] overflow-hidden">
 
-      <dl className="space-y-3.5 text-sm">
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 py-4 border-b border-black/5">
+        <div className="flex items-center gap-2">
+          <FileText className="w-4 h-4 text-[#007AFF]" />
+          <h3 className="text-[14.5px] font-bold text-[#000000] tracking-tight">
+            Physical Specifications
+          </h3>
+        </div>
+        <span className="glass-pill text-[10.5px] text-[#007AFF]">
+          Verified
+        </span>
+      </div>
+
+      {/* Specs List */}
+      <dl className="divide-y divide-black/5">
         {allSpecifications.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 py-1 border-b border-[#F0EFEA] last:border-b-0"
+            className="px-5 py-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 hover:bg-white/80 transition-colors"
           >
-            <dt className="text-[#6B6B65] font-medium min-w-[130px] shrink-0">
+            <dt className="text-[11.5px] font-semibold text-[#8E8E93] uppercase tracking-[0.05em] shrink-0 min-w-[120px]">
               {item.label}
             </dt>
-            <dd className="text-[#242424] font-semibold text-right sm:text-right">
+            <dd className="text-[13.5px] text-[#000000] font-medium sm:text-right leading-snug">
               {item.value}
             </dd>
           </div>

@@ -14,44 +14,32 @@ import {
 } from '@/lib/artifacts';
 
 interface CategoryPageProps {
-  params: Promise<{
-    slug: string;
-  }>;
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
-  return categories.map((cat) => ({
-    slug: cat.slug,
-  }));
+  return categories.map((cat) => ({ slug: cat.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: CategoryPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
-
-  if (!category) {
-    return { title: 'Category Not Found' };
-  }
-
+  if (!category) return { title: 'Category Not Found' };
   return {
-    title: `${category.title} — Digital Heritage Collection`,
+    title: `${category.title} — Collection`,
     description: category.shortDescription,
   };
 }
 
 function CategoryDetailSkeleton() {
   return (
-    <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full animate-pulse">
-      <div className="h-4 w-32 bg-[#E7E5DF] rounded mb-6" />
-      <div className="h-10 w-72 bg-[#E7E5DF] rounded mb-4" />
-      <div className="h-6 w-full max-w-xl bg-[#E7E5DF] rounded mb-12" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="h-80 bg-[#E7E5DF] rounded-2xl" />
-        ))}
+    <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full animate-pulse">
+      <div className="h-4 w-32 bg-neutral-200 rounded mb-6" />
+      <div className="h-10 w-80 bg-neutral-200 rounded mb-5" />
+      <div className="h-5 w-full max-w-lg bg-neutral-200 rounded mb-12" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[1, 2, 3].map((i) => <div key={i} className="h-72 bg-neutral-200 rounded-[24px]" />)}
       </div>
     </main>
   );
@@ -60,10 +48,7 @@ function CategoryDetailSkeleton() {
 async function CategoryDetailContent({ params }: CategoryPageProps) {
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
-
-  if (!category) {
-    notFound();
-  }
+  if (!category) notFound();
 
   const artifacts = getArtifactsByCategory(category.slug);
   const allCategories = getAllCategories();
@@ -71,78 +56,77 @@ async function CategoryDetailContent({ params }: CategoryPageProps) {
 
   return (
     <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
-      {/* Breadcrumb Trail */}
-      <Breadcrumbs
-        items={[
-          { label: 'Categories', href: '/#categories' },
-          { label: category.title },
-        ]}
-      />
 
-      {/* Back Link */}
-      <div className="my-4">
-        <Link
-          href="/artifacts"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8A6A43] hover:text-[#6E5333] transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to All Artifacts</span>
+      {/* Breadcrumbs */}
+      <Breadcrumbs items={[{ label: 'Categories', href: '/#categories' }, { label: category.title }]} />
+
+      {/* Back */}
+      <div className="mt-4 mb-8">
+        <Link href="/artifacts" className="glass-pill text-[12px] group text-[#007AFF]">
+          <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
+          <span>Back to Collection</span>
         </Link>
       </div>
 
-      {/* Category Hero Block */}
-      <header className="mb-12 border-b border-[#E7E5DF] pb-8">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFFFFF] border border-[#E7E5DF] text-xs font-semibold text-[#8A6A43] mb-4">
-          <Layers className="w-3.5 h-3.5" />
-          <span>Curatorial Department</span>
+      {/* Category header */}
+      <header className="mb-12 pb-10 border-b border-black/5 space-y-4">
+        <div className="glass-pill text-[11px] text-[#007AFF]">
+          <Layers className="w-3 h-3 text-[#007AFF]" />
+          <span>Exhibition Gallery</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#242424] tracking-tight mb-4">
+        <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-bold text-[#000000] leading-tight tracking-[-0.035em]">
           {category.title}
         </h1>
-        <p className="text-base sm:text-lg text-[#6B6B65] max-w-3xl leading-relaxed">
+        <p className="text-[16px] sm:text-[17px] text-[#6C6C70] max-w-3xl leading-relaxed">
           {category.shortDescription}
         </p>
       </header>
 
-      {/* Artifacts Grid */}
+      {/* Artifacts */}
       <section className="mb-16">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-[#242424]">
-            Department Holdings ({artifacts.length})
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-7 pb-4 border-b border-black/5">
+          <h2 className="text-[22px] sm:text-[26px] font-bold text-[#000000] tracking-tight">
+            Gallery Holdings
+            <span className="text-[#8E8E93] font-normal ml-2 text-[18px]">({artifacts.length})</span>
           </h2>
-          <span className="text-xs text-[#6B6B65]">
-            Showing authenticated items
-          </span>
+          <span className="text-[13px] text-[#8E8E93]">Authenticated museum records</span>
         </div>
         <ArtifactGrid
           artifacts={artifacts}
-          emptyMessage={`No artifacts currently cataloged in the ${category.title} collection.`}
+          emptyMessage={`No artifacts currently cataloged in the ${category.title} gallery.`}
         />
       </section>
 
-      {/* Explore Other Categories */}
-      <section className="pt-10 border-t border-[#E7E5DF]">
-        <h2 className="text-lg font-semibold text-[#242424] mb-6">
-          Explore Other Departments
-        </h2>
+      {/* Other categories */}
+      <section className="pt-14 border-t border-black/5">
+        <div className="mb-8">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="glass-pill text-[10.5px]">More Galleries</span>
+          </div>
+          <h2 className="text-[26px] sm:text-[30px] font-bold text-[#000000] tracking-tight">Other Collections</h2>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {otherCategories.map((other) => (
             <Link
               key={other.slug}
               href={`/categories/${other.slug}`}
-              className="group bg-[#FFFFFF] rounded-xl border border-[#E7E5DF] p-6 hover:border-[#8A6A43]/40 hover:shadow-xs transition-all flex flex-col justify-between"
+              className="group glass-card p-6 flex flex-col justify-between active:scale-[0.985]"
             >
               <div>
-                <h3 className="font-semibold text-base text-[#242424] group-hover:text-[#8A6A43] transition-colors mb-1.5">
+                <div className="text-[11.5px] font-mono font-medium text-[#8E8E93] bg-white/80 border border-white/95 shadow-[inset_0_1px_1px_rgba(255,255,255,1)] px-2.5 py-1 rounded-full mb-4 inline-block">
+                  {other.itemCountEstimate} objects
+                </div>
+                <h3 className="text-[17px] font-bold text-[#000000] group-hover:text-[#007AFF] transition-colors mb-2 leading-snug tracking-tight">
                   {other.title}
                 </h3>
-                <p className="text-xs text-[#6B6B65] line-clamp-2 leading-relaxed">
-                  {other.shortDescription}
-                </p>
+                <p className="text-[13px] text-[#6C6C70] line-clamp-2 leading-relaxed">{other.shortDescription}</p>
               </div>
-              <div className="mt-4 pt-2 border-t border-[#E7E5DF] flex items-center justify-between text-xs font-medium text-[#8A6A43]">
-                <span>{other.itemCountEstimate} objects</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <div className="mt-5 pt-4 border-t border-black/5 flex items-center justify-between text-[12.5px] font-semibold text-[#007AFF]">
+                <span>View gallery</span>
+                <span className="w-7 h-7 rounded-full bg-white/90 group-hover:bg-[#007AFF] text-[#007AFF] group-hover:text-white flex items-center justify-center transition-all duration-200 border border-white/95 group-hover:border-[#007AFF] shadow-[inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
               </div>
             </Link>
           ))}
@@ -154,7 +138,7 @@ async function CategoryDetailContent({ params }: CategoryPageProps) {
 
 export default function CategoryDetailPage({ params }: CategoryPageProps) {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8F8F5]">
+    <div className="flex flex-col min-h-screen bg-[#FFFFFF]">
       <Header />
       <Suspense fallback={<CategoryDetailSkeleton />}>
         <CategoryDetailContent params={params} />

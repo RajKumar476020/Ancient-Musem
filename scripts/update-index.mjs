@@ -73,3 +73,4 @@ export {
 
 fs.writeFileSync('src/data/artifacts/index.ts', content, 'utf8');
 console.log(`src/data/artifacts/index.ts successfully updated with all ${allVars.length} artifacts!`);
+

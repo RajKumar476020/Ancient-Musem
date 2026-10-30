@@ -245,3 +245,4 @@ export const ${varName}: Artifact = {
 }
 
 run();
+

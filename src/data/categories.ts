@@ -6,7 +6,7 @@ export const categories: Category[] = [
     slug: 'ancient-coins',
     title: 'Ancient Coins',
     shortDescription: 'From early punch-marked silver karshapanas to Greco-Bactrian and Kushan dynastic coinages.',
-    itemCountEstimate: 6,
+    itemCountEstimate: 104,
     iconName: 'CircleDot',
   },
   {
@@ -14,7 +14,7 @@ export const categories: Category[] = [
     slug: 'medieval-coins',
     title: 'Medieval Coins',
     shortDescription: 'Monetary issues of the Delhi Sultanate, Imperial Mughals, and the Maratha kingdom.',
-    itemCountEstimate: 4,
+    itemCountEstimate: 68,
     iconName: 'Coins',
   },
   {
@@ -22,7 +22,7 @@ export const categories: Category[] = [
     slug: 'hindu-deity-sculptures',
     title: 'Hindu Deity Sculptures',
     shortDescription: 'Masterworks in bronze, chloritic schist, and sandstone depicting Shiva, Vishnu, Durga, and Ganesha.',
-    itemCountEstimate: 6,
+    itemCountEstimate: 144,
     iconName: 'Sparkles',
   },
   {
@@ -30,7 +30,7 @@ export const categories: Category[] = [
     slug: 'archaeological-seals',
     title: 'Archaeological Seals',
     shortDescription: 'Steatite stamp seals and clay sealings from the urban centres of Harappa and Mohenjo-daro.',
-    itemCountEstimate: 1,
+    itemCountEstimate: 65,
     iconName: 'Stamp',
   },
   {
@@ -38,7 +38,7 @@ export const categories: Category[] = [
     slug: 'terracotta-figurines',
     title: 'Terracotta & Metal Figurines',
     shortDescription: 'Early bronze casting and fired-clay sculptures of humans, animals, and votive figures.',
-    itemCountEstimate: 2,
+    itemCountEstimate: 120,
     iconName: 'Flame',
   },
   {
@@ -46,7 +46,7 @@ export const categories: Category[] = [
     slug: 'stone-sculptures',
     title: 'Monolithic Sculptures & Capitals',
     shortDescription: 'Monumental Mauryan stone carving and polished sandstone capitals of imperial antiquity.',
-    itemCountEstimate: 1,
+    itemCountEstimate: 70,
     iconName: 'Landmark',
   },
 ];

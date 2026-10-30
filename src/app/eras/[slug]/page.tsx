@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, ArrowRight, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
@@ -14,44 +14,32 @@ import {
 } from '@/lib/artifacts';
 
 interface EraPageProps {
-  params: Promise<{
-    slug: string;
-  }>;
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
   const eras = getAllEras();
-  return eras.map((era) => ({
-    slug: era.slug,
-  }));
+  return eras.map((era) => ({ slug: era.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: EraPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: EraPageProps): Promise<Metadata> {
   const { slug } = await params;
   const era = getEraBySlug(slug);
-
-  if (!era) {
-    return { title: 'Historical Era Not Found' };
-  }
-
+  if (!era) return { title: 'Historical Era Not Found' };
   return {
-    title: `${era.title} (${era.period}) — Digital Heritage`,
+    title: `${era.title} (${era.period})`,
     description: era.shortDescription,
   };
 }
 
 function EraDetailSkeleton() {
   return (
-    <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full animate-pulse">
-      <div className="h-4 w-32 bg-[#E7E5DF] rounded mb-6" />
-      <div className="h-10 w-72 bg-[#E7E5DF] rounded mb-4" />
-      <div className="h-6 w-full max-w-xl bg-[#E7E5DF] rounded mb-12" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {[1, 2, 3].map((i) => (
-          <div key={i} className="h-80 bg-[#E7E5DF] rounded-2xl" />
-        ))}
+    <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full animate-pulse">
+      <div className="h-4 w-32 bg-neutral-200 rounded mb-6" />
+      <div className="h-10 w-80 bg-neutral-200 rounded mb-5" />
+      <div className="h-5 w-full max-w-lg bg-neutral-200 rounded mb-12" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[1, 2, 3].map((i) => <div key={i} className="h-72 bg-neutral-200 rounded-[24px]" />)}
       </div>
     </main>
   );
@@ -60,10 +48,7 @@ function EraDetailSkeleton() {
 async function EraDetailContent({ params }: EraPageProps) {
   const { slug } = await params;
   const era = getEraBySlug(slug);
-
-  if (!era) {
-    notFound();
-  }
+  if (!era) notFound();
 
   const artifacts = getArtifactsByEra(era.slug);
   const allEras = getAllEras();
@@ -71,94 +56,94 @@ async function EraDetailContent({ params }: EraPageProps) {
 
   return (
     <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
-      {/* Breadcrumb Trail */}
-      <Breadcrumbs
-        items={[
-          { label: 'Historical Eras', href: '/#eras' },
-          { label: era.title },
-        ]}
-      />
 
-      {/* Back Link */}
-      <div className="my-4">
-        <Link
-          href="/artifacts"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#8A6A43] hover:text-[#6E5333] transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>View All Artifacts</span>
+      {/* Breadcrumbs */}
+      <Breadcrumbs items={[{ label: 'Historical Eras', href: '/#eras' }, { label: era.title }]} />
+
+      {/* Back */}
+      <div className="mt-4 mb-8">
+        <Link href="/artifacts" className="glass-pill text-[12px] group text-[#007AFF]">
+          <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-0.5" />
+          <span>Back to Collection</span>
         </Link>
       </div>
 
-      {/* Era Header Block */}
-      <div className="my-8 space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFFFFF] border border-[#E7E5DF] text-xs font-semibold text-[#8A6A43]">
-          <Calendar className="w-3.5 h-3.5" />
-          <span>{era.period}</span>
+      {/* Era Header */}
+      <div className="mb-12 space-y-4">
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="glass-pill text-[11.5px] text-[#007AFF]">
+            <Calendar className="w-3 h-3 text-[#007AFF]" />
+            <span>{era.period}</span>
+          </div>
+          <span className="text-[11.5px] font-semibold text-[#8E8E93] bg-white/80 border border-white/95 px-3 py-1 rounded-full shadow-[inset_0_1px_1px_rgba(255,255,255,1)]">
+            Historical Era
+          </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#242424] tracking-tight">
+        <h1 className="text-[34px] sm:text-[46px] lg:text-[54px] font-bold text-[#000000] leading-tight tracking-[-0.035em]">
           {era.title}
         </h1>
 
-        <p className="text-base sm:text-lg text-[#6B6B65] max-w-3xl leading-relaxed">
+        <p className="text-[16px] sm:text-[17px] text-[#6C6C70] max-w-3xl leading-relaxed">
           {era.shortDescription}
         </p>
 
-        {/* Detailed Historical Context Panel */}
-        <div className="p-6 bg-[#FFFFFF] rounded-2xl border border-[#E7E5DF] text-sm text-[#242424] leading-relaxed max-w-4xl mt-6 shadow-xs">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-[#8A6A43] mb-2 flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5" />
-            <span>Historical Epoch Context</span>
+        {/* Historical Context Box */}
+        <div className="mt-6 p-7 sm:p-8 glass-card max-w-4xl">
+          <h2 className="text-[13px] font-bold text-[#007AFF] uppercase tracking-wider mb-3">
+            Historical & Archaeological Context
           </h2>
-          <p>{era.historicalContext}</p>
+          <p className="text-[15.5px] text-[#3C3C43] leading-[1.75]">{era.historicalContext}</p>
         </div>
       </div>
 
-      {/* Artifacts in this Era */}
-      <div className="my-10 space-y-4">
-        <div className="flex items-center justify-between pb-2 border-b border-[#E7E5DF]">
-          <h2 className="text-xl sm:text-2xl font-semibold text-[#242424]">
-            Artifacts from this Epoch
+      {/* Artifacts */}
+      <div className="mb-16 space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-4 border-b border-black/5">
+          <h2 className="text-[22px] sm:text-[26px] font-bold text-[#000000] tracking-tight">
+            Objects from this Era
+            <span className="text-[#8E8E93] font-normal ml-2 text-[18px]">({artifacts.length})</span>
           </h2>
-          <span className="text-xs font-medium text-[#6B6B65]">
-            {artifacts.length} {artifacts.length === 1 ? 'object' : 'objects'} cataloged
-          </span>
+          <span className="text-[13px] text-[#8E8E93]">Chronologically authenticated</span>
         </div>
 
         <ArtifactGrid
           artifacts={artifacts}
-          emptyMessage={`No artifacts currently published from the ${era.title}.`}
+          emptyMessage={`No artifacts currently cataloged from the ${era.title}.`}
         />
       </div>
 
-      {/* Explore Other Eras */}
-      <section className="mt-20 pt-12 border-t border-[#E7E5DF]">
-        <h2 className="text-xl sm:text-2xl font-semibold text-[#242424] mb-6">
-          Other Historical Periods
-        </h2>
+      {/* Other Eras */}
+      <section className="pt-14 border-t border-black/5">
+        <div className="mb-8">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="glass-pill text-[10.5px]">Continue Exploring</span>
+          </div>
+          <h2 className="text-[26px] sm:text-[30px] font-bold text-[#000000] tracking-tight">Adjacent Eras</h2>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {otherEras.slice(0, 3).map((other) => (
             <Link
               key={other.id}
               href={`/eras/${other.slug}`}
-              className="group bg-[#FFFFFF] rounded-xl border border-[#E7E5DF] p-6 hover:border-[#8A6A43]/40 hover:shadow-xs transition-all flex flex-col justify-between"
+              className="group glass-card p-6 flex flex-col justify-between active:scale-[0.985]"
             >
               <div>
-                <span className="text-[11px] font-semibold text-[#8A6A43] uppercase tracking-wider block mb-1">
+                <div className="inline-flex items-center gap-1 text-[11px] font-mono font-medium text-[#007AFF] bg-[#007AFF]/10 border border-[#007AFF]/20 px-2.5 py-0.5 rounded-full mb-4">
+                  <Calendar className="w-3 h-3" />
                   {other.period}
-                </span>
-                <h3 className="font-semibold text-base text-[#242424] group-hover:text-[#8A6A43] transition-colors mb-1.5">
+                </div>
+                <h3 className="text-[17px] font-bold text-[#000000] group-hover:text-[#007AFF] transition-colors mb-2 leading-snug tracking-tight">
                   {other.title}
                 </h3>
-                <p className="text-xs text-[#6B6B65] line-clamp-2 leading-relaxed">
-                  {other.shortDescription}
-                </p>
+                <p className="text-[13px] text-[#6C6C70] line-clamp-2 leading-relaxed">{other.shortDescription}</p>
               </div>
-              <div className="mt-4 pt-2 border-t border-[#E7E5DF] flex items-center justify-between text-xs font-medium text-[#8A6A43]">
-                <span>Explore Era</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <div className="mt-5 pt-4 border-t border-black/5 flex items-center justify-between text-[12.5px] font-semibold text-[#007AFF]">
+                <span>Explore</span>
+                <span className="w-7 h-7 rounded-full bg-white/90 group-hover:bg-[#007AFF] text-[#007AFF] group-hover:text-white flex items-center justify-center transition-all duration-200 border border-white/95 group-hover:border-[#007AFF] shadow-[inset_0_1px_1px_rgba(255,255,255,1)]">
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
               </div>
             </Link>
           ))}
@@ -170,7 +155,7 @@ async function EraDetailContent({ params }: EraPageProps) {
 
 export default function EraDetailPage({ params }: EraPageProps) {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F8F8F5]">
+    <div className="flex flex-col min-h-screen bg-[#FFFFFF]">
       <Header />
       <Suspense fallback={<EraDetailSkeleton />}>
         <EraDetailContent params={params} />
