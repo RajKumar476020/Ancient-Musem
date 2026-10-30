@@ -1,252 +1,287 @@
-# Ancient Musem — World Digital Museum of Ancient Historical Artifacts
+<div align="center">
 
-An editorial digital heritage museum website celebrating ancient historical artifacts, numismatics, sacred sculpture, and archaeological treasures across five millennia of civilization.
+# 🏛️ Ancient Musem
 
-Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Vitest**, featuring 571 peer-reviewed historical artifacts, authentic public-domain museum photography, multi-attribute catalog filtering, interactive image lightbox zoom, structured timelines, and 100% static pre-rendering (`SSG`).
+### The World Digital Heritage Museum & Historical Artifacts Archive
+
+[![Next.js 16](https://img.shields.io/badge/Next.js-16.4.3-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript 5.9](https://img.shields.io/badge/TypeScript-5.9-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-38bdf8?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Vitest](https://img.shields.io/badge/Vitest-21%20Tests%20Passing-green?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Pre-rendered Routes](https://img.shields.io/badge/SSG-595%20Static%20Routes-orange?style=for-the-badge&logo=vercel&logoColor=white)](https://historical-artifacts-museum.vercel.app/)
+[![License MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+
+<p align="center">
+  <b>An editorial digital museum archiving 571 authenticated historical artifacts, ancient dynastic coinages, sacred sculpture, and archaeological antiquities across five millennia of civilization.</b>
+</p>
+
+<p align="center">
+  <a href="https://historical-artifacts-museum.vercel.app/"><strong>Explore Ancient Musem Live »</strong></a>
+  <br />
+  <a href="#-curatorial-departments">Explore Galleries</a> •
+  <a href="#-chronological-eras">Chronological Timeline</a> •
+  <a href="#-design-system--apple-ios-26-ui">iOS 26 UI System</a> •
+  <a href="#-seo--google-image-xml-sitemaps">SEO &amp; XML Sitemaps</a> •
+  <a href="#-getting-started">Run Locally</a>
+</p>
+
+</div>
 
 ---
 
-## 🏛️ Project Highlights & Features
+> [!NOTE]
+> **Ancient Musem** is an academic, open-access digital heritage initiative. Every historical specimen in the collection is anchored in authenticated museum accession catalogs, peer-reviewed archaeological reports, and verified public-domain photography with zero watermarks or synthetic renderings.
 
-- **571 Authenticated Indian Historical Artifacts**: Spanning the Bronze Age Indus Valley Civilization (c. 2600 BCE) through the Mughal and Maratha Empires (c. 1800 CE).
-- **Curatorial Balance across 6 Departments**:
-  - **Ancient Coins**: Punch-marked karshapanas, Greco-Bactrian tetradrachms (Demetrios I, Eukratides I), Kushan gold dinars (Vima Kadphises, Huvishka, Vasudeva I & II), and Gupta gold archer dinars.
-  - **Medieval Coins & Royal Regalia**: Imperial Mughal gold-damascened katars, jade-hilted khanjars, cobalt glass hookah bases, and dynastic coinage.
-  - **Hindu Deity & Sacred Sculptures**: Chola Nataraja, Kashmir Standing Buddha, Chola Ganesha, Pala Buddha calling earth to witness, Chola Uma-Maheshvara, Kashmir Vajrapani, Chola Hanuman, Yoga Narasimha, Sultanganj colossal bronze Buddha, and Jina Parshvanatha.
-  - **Monolithic Sculptures & Stone Reliefs**: Mathura Kushan Yakshi railing pillars, Bharhut stupa coping rails and crossbars, Agni god of fire, Hoysala Shiva guardians, and Harshagiri dancing friezes.
-  - **Terracotta & Metal Figurines**: Ahichchatra Mithuna couples, Kaushambi seated Yakshas, Shunga Yakshi plaques, Chandraketugarh winged figures, Bulandibagh Pataliputra heads, and Harwan Kashmir ascetic tiles.
-  - **Archaeological Seals & Antiquities**: Indus Valley steatite bull seals, kaolin unicorn seals, and Bronze Age Copper Hoard anthropomorphic figures.
-- **Museum Editorial Aesthetic**: Dedicated light-mode exhibition design (`#F8F8F5` museum parchment background, `#FFFFFF` display surfaces, `#242424` typography, and `#8A6A43` warm antique bronze accents).
-- **Real-Time Catalog Search & Filter**: Instant multi-token search across titles, dynasties, materials, and holding institutions, paired with category and era filtering, sorting options, and URL query parameter synchronization.
-- **Interactive Lightbox Zoom**: High-resolution image modal with keyboard shortcuts (`Esc` to dismiss) and attribution overlays.
-- **Deep Curatorial Context**: Each artifact includes verified dimensions, weight, discovery findspot, holding museum accession number, verified historical timeline, in-depth contextual analysis, and peer-reviewed academic citations.
-- **SEO & Structured Data**: Dynamic `sitemap.xml`, `robots.txt`, open-graph metadata tags, semantic HTML5, and valid `JSON-LD` (`Article` schema) on every artifact page.
-- **100% Static Pre-rendering (`SSG`)**: All 595 routes generated at build time with 0 runtime database latency.
+---
+
+## 🧭 Interactive Curatorial Navigator
+
+Click on any section below to expand detailed curatorial records, technical specifications, and architectural documentation:
+
+<details open>
+<summary><h3>🏛️ Curatorial Departments &amp; Collection Breakdown (571 Artifacts)</h3></summary>
+
+The **Ancient Musem** collection is structured across six specialized curatorial departments, each containing high-resolution photography, physical dimensions, metallurgical weights, and museum provenance:
+
+| Department | Artifacts | Primary Materials | Key Historical Specimens |
+|:---|:---:|:---|:---|
+| **[Ancient Coins](https://historical-artifacts-museum.vercel.app/categories/ancient-coins)** | **104** | Fine Gold, Silver, Billon, Bronze | Punch-marked silver karshapanas, Greco-Bactrian tetradrachms (Menander, Demetrios I), Kushan royal dinars (Kanishka, Huvishka), Gupta Archer dinars |
+| **[Hindu Deity &amp; Sacred Sculptures](https://historical-artifacts-museum.vercel.app/categories/hindu-deity-sculptures)** | **144** | Lost-wax Bronze, Chlorite, Schist | Chola Nataraja bronze, Sultanganj Buddha, Kashmir standing Vishnu, Pala Bodhisattva Avalokiteshvara, Hoysala dancing Ganesha |
+| **[Terracotta &amp; Metal Figurines](https://historical-artifacts-museum.vercel.app/categories/terracotta-figurines)** | **120** | Baked Clay, Cast Bronze, Brass | Indus Valley Dancing Girl, Shunga Yakshi molded plaques, Ahichchatra Mithuna couples, Chandraketugarh winged deities |
+| **[Monolithic &amp; Stone Sculptures](https://historical-artifacts-museum.vercel.app/categories/stone-sculptures)** | **70** | Polished Chunar Sandstone, Granite | Ashoka Lion Capital (Sarnath), Mathura Kushan Yakshis, Bharhut stupa coping rails, Gandhara schist friezes |
+| **[Medieval Coins &amp; Imperial Regalia](https://historical-artifacts-museum.vercel.app/categories/medieval-coins)** | **68** | Solid Gold, Damascened Steel, Jade | Mughal Jahangir Zodiac rupees, Akbar gold mohurs, Maratha Shivaji gold hons, Delhi Sultanate tankas, royal katars |
+| **[Archaeological Seals &amp; Antiquities](https://historical-artifacts-museum.vercel.app/categories/archaeological-seals)** | **65** | Carved Steatite, Faience, Agate | Indus Valley Unicorn steatite seals, Pashupati proto-Shiva seal, Harappan standard weights, Copper Hoard harpoons |
+
+</details>
+
+<details>
+<summary><h3>⏳ Chronological Eras Timeline (c. 2600 BCE – 1800 CE)</h3></summary>
+
+Journey through 4,500 years of continuous cultural evolution:
+
+```
+c. 2600 BCE                                                            1800 CE
+ ├── [01] Indus Valley Civilization (c. 2600 – 1900 BCE)
+ │    └── Harappan urbanism, steatite seals, bronze casting, terracotta arts
+ ├── [02] Vedic & Janapada Age (c. 1500 – 500 BCE)
+ │    └── Early silver punch-marked coinage (karshapana), ritual copper implements
+ ├── [03] Maurya & Post-Maurya Epoch (c. 322 BCE – 320 CE)
+ │    └── Sarnath Ashokan edicts, Gandhara Greco-Buddhist art, Shunga reliefs
+ ├── [04] Classical Gupta Golden Age (c. 320 – 550 CE)
+ │    └── Imperial Sanskrit epigraphy, lyrical archer gold coinage, classical stone stelae
+ ├── [05] Early Medieval Dynasties (c. 550 – 1200 CE)
+ │    └── Pallava shore temples, Rashtrakuta rock-cut shrines, Pala bronze icons
+ ├── [06] Chola & Imperial South (c. 850 – 1279 CE)
+ │    └── Lost-wax sacred cire-perdue bronzes, Dravidian temple architectural bronzes
+ └── [07] Delhi Sultanate & Mughal Era (c. 1206 – 1800 CE)
+      └── Inscriptional calligraphic numismatics, damascened weaponry, courtly regalia
+```
+
+</details>
+
+<details>
+<summary><h3>💎 Design System: Apple iOS 26+ Liquid Glass UI</h3></summary>
+
+The application features a bespoke **Apple iOS 26+ Liquid Glass** aesthetic built from first principles for light-mode museum curation:
+
+- **Pure Optical Canvas**: Pure white (`#FFFFFF`) foundation with subtle multi-tier ambient refraction meshes (`.ambient-orb-1`, `.ambient-orb-2`).
+- **Liquid Glass Materials**:
+  - `.glass-card`: Multi-layer squircle container with specular highlights (`inset 0 1px 1.5px rgba(255,255,255,1)`), continuous squircle curvature (`rounded-[24px]`), and soft ambient elevation shadows.
+  - `.glass-surface`: Frosted translucent panels with backdrop blur (`backdrop-blur-2xl`).
+  - `.glass-pill`: Frosted metadata capsules for historical dates, materials, and categories.
+  - `.glass-btn-primary`: High-contrast black iOS capsule buttons with active micro-spring physics (`active:scale-[0.98]`).
+- **Editorial Museum Typography**:
+  - **Headings**: *Cormorant Garamond* (`font-serif`) — Velvety, regal classical display serif.
+  - **Body Copy**: *Plus Jakarta Sans* (`font-sans`) — Crisp, humanistic modern sans optimized for reading long-form curatorial essays.
+  - **Metrics & Accession Codes**: *SF Mono / Monospace* (`font-mono`) — Precision chronological and catalog numbering.
+- **Cupertino Segmented Navigation**: Floating liquid glass top dock paired with persistent floating bottom tab bar (`TabBar.tsx`) with dynamic active path indicators.
+
+</details>
+
+<details>
+<summary><h3>🔍 SEO Architecture &amp; Google Search XML Sitemaps</h3></summary>
+
+To secure top organic Google search ranking for **Ancient Musem**, the project implements a multi-tier search engine indexing system:
+
+1. **Google Image &amp; Keyword XML Sitemap (`/ancient-musem-sitemap.xml`)**:
+   - High-density 474 KB XML file compliant with `http://www.google.com/schemas/sitemap-image/1.1`.
+   - Embeds the exact search term `"Ancient Musem"` across `<image:title>`, `<image:caption>`, and geographical location metadata for all 571 objects.
+2. **Next.js Static Sitemap (`/sitemap.xml`)**:
+   - Statically compiled at build time (`○ Static`) delivering 100% crawl coverage across root, catalog, category, era, and artifact pages.
+3. **Crawler Directives (`/robots.txt`)**:
+   - Universal search crawler allowance pointing simultaneously to both XML indexes.
+4. **Structured JSON-LD Data**:
+   - Validated Schema.org `Article` and `VisualArtwork` semantic JSON-LD on every artifact page with author, publisher, datePublished, and high-resolution image URLs.
+
+</details>
+
+<details>
+<summary><h3>🧱 Zod Schema &amp; Data Contract</h3></summary>
+
+Every artifact record in `src/data/artifacts/` is strictly validated at runtime and compile-time using Zod:
+
+```typescript
+export const ArtifactSchema = z.object({
+  id: z.string(),
+  slug: z.string(),
+  title: z.string(),
+  summary: z.string(),
+  categorySlug: z.string(),
+  eraSlug: z.string(),
+  civilization: z.string().optional(),
+  dynasty: z.string().optional(),
+  dateDisplay: z.string(),
+  dateStart: z.number(), // BCE (negative) or CE (positive)
+  dateEnd: z.number(),
+  material: z.string().optional(),
+  origin: z.string().optional(),
+  discoverySite: z.string().optional(),
+  currentCollection: z.string().optional(),
+  dimensions: z.string().optional(),
+  description: z.string(),
+  sections: z.array(ArtifactSectionSchema),
+  quickFacts: z.array(ArtifactFactSchema),
+  timeline: z.array(ArtifactTimelineMilestoneSchema).optional(),
+  interestingFacts: z.array(z.string()).optional(),
+  images: z.array(ArtifactImageSchema).min(1),
+  sources: z.array(ArtifactSourceSchema).min(1),
+  lastReviewed: z.string().optional(),
+});
+```
+
+</details>
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Layer | Technology |
-|---|---|
-| **Framework** | Next.js 16.4 (App Router, Turbopack, Server Components) |
-| **Language** | TypeScript 5.9 (Strict Type Checking) |
-| **Styling** | Tailwind CSS v4 + Vanilla CSS Custom Properties |
-| **Typography** | Plus Jakarta Sans (Google Fonts via `next/font`) |
-| **Icons** | Lucide React (`lucide-react`) |
-| **Data Validation** | Zod 3.24 |
-| **Test Suite** | Vitest 3.2 + JSDOM |
+```mermaid
+graph TD
+    A[Next.js 16 App Router] --> B[TypeScript 5.9]
+    A --> C[Tailwind CSS v4]
+    A --> D[Turbopack Engine]
+    B --> E[Zod 3.24 Schema Validation]
+    A --> F[Lucide React Icons]
+    A --> G[Vitest 3.2 Test Suite]
+    A --> H[595 SSG Static Pages]
+```
+
+| Layer | Technology | Purpose |
+|:---|:---|:---|
+| **Framework** | Next.js 16.4.3 (App Router) | Server Components, Partial Prerendering, Static Site Generation |
+| **Language** | TypeScript 5.9 | Full end-to-end type safety across 571 artifact modules |
+| **Styling** | Tailwind CSS v4 + Vanilla CSS Tokens | Apple iOS 26 Liquid Glass utility classes and continuous squircles |
+| **Typography** | Cormorant Garamond + Plus Jakarta Sans | Google Fonts loaded via `next/font` with zero layout shift |
+| **Validation** | Zod 3.24 | Schema validation for all artifact, category, and era records |
+| **Testing** | Vitest 3.2 + JSDOM | Fast unit tests verifying schema integrity and data retrieval |
+| **SEO & Sitemaps** | Static XML & Google Image Schema | High Google keyword density for *Ancient Musem* |
 
 ---
 
-## 📂 Project Architecture
+## 📁 Repository Structure
 
 ```
-Musem/
+Ancient-Musem/
 ├── public/
+│   ├── ancient-musem-sitemap.xml       # 474 KB Google Image & Keyword XML Sitemap
 │   └── images/
-│       └── artifacts/
-│           ├── chola-nataraja-bronze/
-│           │   └── primary.jpg
-│           ├── lion-capital-ashoka/
-│           │   └── primary.jpg
-│           └── ... (20 verified local images)
+│       └── artifacts/                  # 571 Verified local artifact photography folders
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx              # Root HTML, Plus Jakarta Sans, MetadataBase
-│   │   ├── globals.css             # Museum design tokens & Tailwind utilities
-│   │   ├── page.tsx                # Museum Homepage (Hero, Featured, Eras, Categories)
-│   │   ├── not-found.tsx           # Custom 404 Error page
-│   │   ├── sitemap.ts              # Dynamic sitemap (44 pre-rendered URLs)
-│   │   ├── robots.ts               # Robots.txt configuration
+│   │   ├── layout.tsx                  # Root layout, fonts, metadata, iOS ambient mesh
+│   │   ├── globals.css                 # iOS 26 Liquid Glass tokens, typography system
+│   │   ├── page.tsx                    # Homepage (Hero, Galleries, Eras, Curatorial Ethics)
+│   │   ├── not-found.tsx               # iOS 26 Cupertino 404 Error screen
+│   │   ├── sitemap.ts                  # Next.js static sitemap generator (595 URLs)
+│   │   ├── robots.ts                   # Robots.txt crawler configuration
 │   │   ├── about/
-│   │   │   └── page.tsx            # Museum Research Standards & Editorial Mission
+│   │   │   └── page.tsx                # Academic standards & open-access methodology
 │   │   ├── artifacts/
-│   │   │   ├── page.tsx            # Collection Catalog with <Suspense>
+│   │   │   ├── page.tsx                # Catalog page with search, filters, pagination
 │   │   │   └── [slug]/
-│   │   │       └── page.tsx        # Dynamic Artifact Detail with JSON-LD & SSG
-│   │   ├── categories/
-│   │   │   └── [slug]/
-│   │   │       └── page.tsx        # Departmental Category Collection Pages
-│   │   └── eras/
-│   │       └── [slug]/
-│   │           └── page.tsx        # Chronological Era Exhibition Pages
+│   │   │       └── page.tsx            # Artifact dossier page with JSON-LD & vitrine
+│   │   ├── categories/[slug]/
+│   │   │   └── page.tsx                # Exhibition department gallery views
+│   │   └── eras/[slug]/
+│   │       └── page.tsx                # Chronological era milestone views
 │   ├── components/
-│   │   ├── artifacts/
-│   │   │   ├── ArtifactCard.tsx    # Responsive museum object card
-│   │   │   ├── ArtifactCatalog.tsx # Client search, filters, and URL query sync
-│   │   │   ├── ArtifactFacts.tsx   # Curatorial specification panel
-│   │   │   ├── ArtifactGallery.tsx # High-res viewer with Lightbox Zoom modal
-│   │   │   ├── ArtifactGrid.tsx    # Responsive grid layout with empty states
-│   │   │   ├── ArtifactTimeline.tsx# Chronological timeline component
-│   │   │   └── RelatedArtifacts.tsx# Smart related recommendations
-│   │   ├── home/
-│   │   │   ├── Hero.tsx            # Editorial hero with curation stats
-│   │   │   ├── CategoryBrowse.tsx  # Department showcase cards
-│   │   │   └── EraBrowse.tsx       # Chronological timeline explorer
-│   │   ├── layout/
-│   │   │   ├── Header.tsx          # Navigation bar with desktop & mobile links
-│   │   │   ├── MobileNav.tsx       # Accessible mobile menu sheet
-│   │   │   └── Footer.tsx          # Institutional links, licensing & copyright
-│   │   └── ui/
-│   │       └── Breadcrumbs.tsx     # Semantic breadcrumb navigation
+│   │   ├── artifacts/                  # Cards, Catalog, Facts, Gallery Lightbox, Timeline
+│   │   ├── home/                       # Hero, CategoryBrowse, EraBrowse
+│   │   ├── layout/                     # Header, MobileNav, Footer, TabBar
+│   │   └── ui/                         # Breadcrumbs and UI atoms
 │   ├── data/
-│   │   ├── categories.ts           # 6 curatorial department definitions
-│   │   ├── eras.ts                 # 7 chronological era periods
-│   │   └── artifacts/
-│   │       ├── index.ts            # Central registry exporting all 20 modules
-│   │       ├── chola-nataraja-bronze.ts
-│   │       ├── lion-capital-ashoka.ts
-│   │       └── ... (20 individual artifact data files)
+│   │   ├── categories.ts               # 6 curatorial department definitions
+│   │   ├── eras.ts                     # 7 chronological era periods
+│   │   └── artifacts/                  # 571 individual TypeScript artifact datasets
 │   ├── lib/
-│   │   ├── artifacts.ts            # Artifact retrieval, slug lookup, and related scoring
-│   │   └── search.ts               # Multi-token search algorithm and sorters
-│   └── types/
-│       ├── artifact.ts             # Zod schema & TypeScript type for Artifacts
-│       ├── category.ts             # Category schema & type definition
-│       └── era.ts                  # Historical era schema & type definition
-└── tests/
-    └── unit/
-        ├── smoke.test.ts           # Environment & test runner validation
-        ├── schema.test.ts          # Zod schema validation tests
-        ├── taxonomy.test.ts        # Category & Era integrity tests
-        ├── artifacts-data.test.ts  # Verification of all 20 artifact datasets
-        └── artifacts-lib.test.ts   # Data access, search & scoring tests
+│   │   ├── artifacts.ts                # Data access, slug lookup, and scoring engine
+│   │   ├── search.ts                   # Multi-attribute search and sorting algorithms
+│   │   └── recommendations.ts          # Curatorial related artifact recommendation engine
+│   └── types/                          # Zod schemas & TypeScript type interfaces
+├── tests/
+│   └── unit/                           # 21 Vitest unit tests (smoke, schema, taxonomy, data)
+└── scripts/
+    └── generate-ancient-musem-sitemap.ts # Generator for high-density Google XML sitemaps
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-
-- **Node.js**: v20+ or v24+ recommended.
-- **npm**: v10+
-
-### Installation
+### 1. Clone & Install
 
 ```bash
-# Clone the repository (or navigate to workspace)
-cd d:/Websites/Musem
+# Clone the repository
+git clone https://github.com/RajKumar476020/Ancient-Musem.git
+cd Ancient-Musem
 
 # Install dependencies
 npm install --legacy-peer-deps
 ```
 
-### Running Locally
+### 2. Run Development Server
 
 ```bash
 # Start Next.js development server with Turbopack
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to explore the museum.
+Open [http://localhost:3000](http://localhost:3000) in your browser to experience **Ancient Musem**.
 
-### Running Test Suite
+### 3. Run Test Suite
 
 ```bash
-# Execute unit and schema tests via Vitest
+# Execute 21 Vitest unit tests
 npm test
 ```
 
-### Code Quality & Static Type Checking
+### 4. Build for Production
 
 ```bash
-# Run ESLint
-npm run lint
-
-# Production build and SSG verification (pre-renders all 44 routes)
+# Compile and statically pre-render all 595 routes
 npm run build
 ```
 
 ---
 
-## 📖 How to Add a New Artifact
+## 🏛️ Academic Rights & Open-Access Licensing
 
-To maintain the high editorial standard of the collection, follow these steps when curating and introducing a new historical object:
+All imagery and research in **Ancient Musem** is curated strictly under verifiable Open Access or Public Domain licenses:
 
-1. **Obtain Authentic Imagery**:
-   - Download a high-resolution, public-domain or CC0 image from an open-access institution (e.g., The Metropolitan Museum of Art, Cleveland Museum of Art, or Wikimedia Commons).
-   - Place the image in `public/images/artifacts/<slug>/primary.jpg`.
+- **The Metropolitan Museum of Art (The Met)**: Open Access Policy (Creative Commons Zero — CC0 1.0).
+- **Cleveland Museum of Art (CMA)**: Open Access (Creative Commons Zero — CC0 1.0).
+- **Archaeological Survey of India & State Museums**: Public Domain cultural heritage documentation.
+- **Wikimedia Commons**: Works confirmed in the public domain in their country of origin and the United States (age $> 100$ years) or licensed under CC-BY / CC-BY-SA.
 
-2. **Create the Artifact Data Module**:
-   - Create `src/data/artifacts/<slug>.ts` implementing the `Artifact` interface.
-   - Example structure:
-     ```typescript
-     import { Artifact } from '@/types/artifact';
-
-     export const myArtifact: Artifact = {
-       slug: 'my-historical-artifact',
-       title: 'Title of the Artifact',
-       subtitle: 'Formal Scholarly Subtitle',
-       category: 'sculptures-idols', // Must match one of 6 valid category slugs
-       era: 'chola-dynasty',         // Must match one of 7 valid era slugs
-       date: 'c. 10th Century CE',
-       approxYear: 950,
-       material: 'Bronze',
-       dimensions: 'Height: 85 cm; Width: 60 cm',
-       weight: '24.5 kg',
-       provenance: 'Thanjavur, Tamil Nadu, India',
-       holdingInstitution: 'National Museum, New Delhi',
-       accessionNumber: 'NM-1947.102',
-       featured: true,
-       shortDescription: 'Concise 2-sentence summary for preview cards.',
-       description: [
-         'Comprehensive paragraph detailing artistic and historical significance.',
-         'Second paragraph elaborating on iconography and technique.'
-       ],
-       historicalContext: 'In-depth essay covering the political and cultural climate.',
-       artisticSignificance: 'Analysis of stylistic motifs and craftsmanship.',
-       timeline: [
-         { year: 'c. 950 CE', title: 'Commission', description: 'Created in royal foundry.' },
-         { year: '1934 CE', title: 'Discovery', description: 'Unearthed in hoard near Thanjavur.' }
-       ],
-       image: {
-         src: '/images/artifacts/my-historical-artifact/primary.jpg',
-         alt: 'Detailed alt description for accessibility',
-         caption: 'Primary perspective photograph',
-         credit: 'The Metropolitan Museum of Art',
-         sourceUrl: 'https://www.metmuseum.org/...',
-         license: 'CC0 1.0 Universal Public Domain'
-       },
-       citations: [
-         { title: 'The Art of South India', author: 'Sivaramamurti, C.', year: 1963, source: 'Archaeological Survey of India' }
-       ]
-     };
-     ```
-
-3. **Register in the Central Index**:
-   - Export the new object in `src/data/artifacts/index.ts`.
-
-4. **Verify with Tests**:
-   - Run `npm test` to automatically validate the schema with Zod and verify image path existence.
-
----
-
-## 🏛️ Institutional Sourcing & Image Rights
-
-All photography showcased in The Historical Artifacts Museum is strictly sourced under verifiable Open Access or Public Domain licenses:
-
-- **The Metropolitan Museum of Art (The Met)**: Open Access Policy (Creative Commons Zero - CC0 1.0).
-- **Cleveland Museum of Art (CMA)**: Open Access (Creative Commons Zero - CC0 1.0).
-- **Wikimedia Commons**: Works confirmed to be in the public domain in their country of origin and the United States (due to age of creation $> 100$ years) or released under Creative Commons CC-BY-SA.
-
-Direct source URLs, institutional accession identifiers, and credit lines are transparently displayed on every artifact detail page.
-
----
-
-## 🌐 Deployment to Vercel
-
-The application is pre-configured for deployment on [Vercel](https://vercel.com):
-
-1. Push the repository to GitHub.
-2. Import the repository into the Vercel Dashboard.
-3. Keep the default settings (Next.js preset, `npm run build`).
-4. Deploy! All 44 routes will pre-render statically for global CDN distribution.
+Every artifact detail page prominently displays holding institution accession numbers, provenance, and direct citations.
 
 ---
 
 ## 📄 License
 
-The code and design system are licensed under the [MIT License](LICENSE).  
+The software source code and design system are licensed under the **[MIT License](LICENSE)**.  
 Historical artifact imagery and metadata retain their respective museum open-access licenses as attributed per object.
+
+<div align="center">
+  <sub>Curated with academic precision and curatorial elegance for <b>Ancient Musem</b>.</sub>
+</div>
